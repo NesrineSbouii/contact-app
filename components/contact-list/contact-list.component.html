@@ -1,0 +1,63 @@
+<div class="contact-page">
+    <!-- contact form -->
+    <div class="form-fields">
+        <!--[formGroup]="contactForm"-->
+        <mat-card class="global-card">
+            <h1> Add Contact</h1>
+            <form class="form-control" [formGroup]="formContact" (ngSubmit)="onSubmit()" >
+                <p>
+                    <mat-form-field appearance="legacy">
+                        <mat-label>First Name</mat-label>
+                        <input formControlName="firstName" 
+                        matInput placeholder="First Name">
+                    </mat-form-field>
+                </p> 
+                
+                <p>
+                    <mat-form-field appearance="legacy">
+                        <mat-label>Last Name</mat-label>
+                        <input matInput placeholder="Last Name"
+                        formControlName="lastName" >
+                    </mat-form-field>
+                </p>
+            
+                <p>
+                    <mat-form-field appearance="legacy">
+                        <mat-label>Email</mat-label>
+                        <input matInput placeholder="Email"
+                        formControlName="email" >
+                    </mat-form-field>
+                </p>
+
+                <p>
+                    <mat-form-field appearance="legacy">
+                        <mat-label>Phone Number</mat-label>
+                        <input matInput placeholder="Phone Number"
+                        formControlName="phoneNumber" >
+                    </mat-form-field>
+                </p>
+                <button type="submit" (click)="onSubmit" mat-raised-button color="primary">Add</button>
+
+            </form>
+         </mat-card>
+    </div>
+
+    <!-- contact list -->
+    <div class="contact-list">
+        <mat-card class="contact-card" *ngFor="let item of items; let index=index; ">
+            <mat-card-title-group>
+                <mat-card-title>{{item?.firstName}} {{item?.lastName}}</mat-card-title>
+                <mat-card-subtitle>email: {{item?.email}}</mat-card-subtitle>
+                <mat-card-subtitle>phone: {{item?.phoneNumber}}</mat-card-subtitle>
+                <mat-form-field appearance="legacy">
+                    <mat-label>First Name</mat-label>
+                    <input [value]="item.firstName" type="text"
+                    matInput placeholder="type here to change the First Name"
+                    (change)="onNameChange($event, index)">
+                </mat-form-field>
+                <mat-icon (click)="deleteFromList(index)" aria-hidden="false" aria-label="delete">cancel</mat-icon>
+            </mat-card-title-group>
+          </mat-card>
+          
+    </div>
+</div>

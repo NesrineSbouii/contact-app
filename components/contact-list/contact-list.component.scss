@@ -1,0 +1,32 @@
+.contact-page{
+    
+    display: flex;
+    .form-fields{
+        flex: 1;
+        display: flex;
+        mat-form-field{
+            width: 200px;
+        }
+        
+        text-align: center;
+    }
+
+
+    .global-card{
+        width: 400px;
+        margin: auto;
+    }
+
+    .contact-list{
+        flex: auto;
+        margin-right: 20px;
+    }
+
+    .contact-card{
+        :hover{
+            background-color: rgb(243, 243, 243) ;
+        }
+    }
+    
+
+}
